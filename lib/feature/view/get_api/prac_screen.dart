@@ -1,4 +1,4 @@
-import 'package:demo_project/feature/controller/prac_controller.dart';
+import 'package:demo_project/feature/controller/get_api/prac_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

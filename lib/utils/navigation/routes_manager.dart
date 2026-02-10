@@ -1,9 +1,9 @@
-import 'package:demo_project/feature/view/photos_screen.dart';
-import 'package:demo_project/feature/view/todo_screen.dart';
-import 'package:demo_project/feature/view/users_screen.dart';
+import 'package:demo_project/feature/view/get_api/photos_screen.dart';
+import 'package:demo_project/feature/view/get_api/todo_screen.dart';
+import 'package:demo_project/feature/view/get_api/users_screen.dart';
 import 'package:demo_project/utils/constant/local_storage_key_string.dart';
 import 'package:go_router/go_router.dart';
-import '../../feature/view/prac_screen.dart';
+import '../../feature/view/get_api/prac_screen.dart';
 import 'app_routes.dart';
 
 class AppRouter {

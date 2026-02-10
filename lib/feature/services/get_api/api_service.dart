@@ -1,22 +1,23 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import '../core/constants/api_constants.dart';
 
-class TodosApiService {
+import '../../core/constants/api_constants.dart';
+
+class ApiService {
   final http.Client _client = http.Client();
+  Future<T> getRequest<T>({
+    required String endpoint,
+    required T Function(dynamic json) fromJson,
 
-  Future<T> getReques<T>({required T Function(dynamic json) fromJson}) async {
+  }) async {
     try {
-      final url = Uri.parse(ApiConstants.todourl);
-      final response = await _client.get(url);
+      final url = Uri.parse('${ApiConstants.baseUrl}$endpoint');
 
-      if (response.statusCode == 200) {
-        final jsonData = jsonDecode(response.body);
-        return fromJson(jsonData);
-      } else {
-        throw "Server Error: ${response.statusCode}";
-      }
+      final response = await _client
+          .get(url);
+          // .timeout(Duration(milliseconds: ApiConstants.connectTimeout));
+      return _handleResponse(response, fromJson);
     } catch (e) {
       throw "Network Error: ${e.toString()}";
     }
@@ -53,23 +54,23 @@ class TodosApiService {
 
   // delete request method
 
-  // T _handleResponse<T>(
-  //   http.Response response,
-  //   T Function(dynamic json) fromJson,
-  // ) {
-  //   // _validstatusCode(response.statusCode, response.body);
+  T _handleResponse<T>(
+    http.Response response,
+    T Function(dynamic json) fromJson,
+  ) {
+    // _validstatusCode(response.statusCode, response.body);
 
-  //   if (response.statusCode == 304 || response.body.isEmpty) {
-  //     return fromJson(null);
-  //   }
+    if (response.statusCode == 304 || response.body.isEmpty) {
+      return fromJson(null);
+    }
 
-  //   try {
-  //     final jsonData = jsonDecode(response.body);
-  //     return fromJson(jsonData);
-  //   } catch (e) {
-  //     throw "Data Parsing Error: ${e.toString()}";
-  //   }
-  // }
+    try {
+      final jsonData = jsonDecode(response.body);
+      return fromJson(jsonData);
+    } catch (e) {
+      throw "Parse Error: Failed to parse response: ${e.toString()}";
+    }
+  }
 
   // void _validstatusCode(int statusCode, String responseBody) {
   //   if (statusCode >= 200 && statusCode < 360) {
@@ -96,12 +97,12 @@ class TodosApiService {
   //       errorMessage = ' Unexpected Error';
   //   }
 
-  //   throw ServerException(
-  //     message: errorMessage,
-  //     statusCode: statusCode,
-  //     response: responseBody,
-  //   );
-  // }
+  // throw ServerException(
+  //   message: errorMessage,
+  //   statusCode: statusCode,
+  //   response: responseBody,
+  // );
+}
 
   // Map<String, String> _defaultHeaders() {
   //   return {
@@ -109,4 +110,4 @@ class TodosApiService {
   //     'Accept': 'application/json',
   //   };
   // }
-}
+

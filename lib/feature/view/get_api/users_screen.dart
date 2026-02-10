@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
-import '../controller/user_controller.dart';
+import '../../controller/get_api/user_controller.dart';
 
 class UsersScreen extends StatelessWidget {
   const UsersScreen({super.key});

@@ -1,8 +1,8 @@
 import 'package:demo_project/feature/core/constants/api_constants.dart';
-import 'package:demo_project/feature/services/prac_api_service.dart';
+import 'package:demo_project/feature/services/get_api/prac_api_service.dart';
 import 'package:get/get.dart';
 
-import '../models/prac_model.dart';
+import '../../models/get_api/prac_model.dart';
 
 class PracController extends GetxController {
   final PracApiService _apiService = PracApiService();

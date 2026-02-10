@@ -1,7 +1,7 @@
-import 'package:demo_project/feature/services/photos_api_service.dart';
+import 'package:demo_project/feature/services/get_api/photos_api_service.dart';
 import 'package:get/get.dart';
 
-import '../models/photos_model.dart';
+import '../../models/get_api/photos_model.dart';
 
 class PhotosController extends GetxController {
   final PhotosApiService _apiService = PhotosApiService();

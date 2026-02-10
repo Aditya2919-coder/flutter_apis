@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 
-import '../core/exceptions/api_exceptions.dart';
-import '../models/user_model.dart';
-import '../services/api_service.dart';
-import '../core/constants/api_constants.dart';
+import '../../core/exceptions/api_exceptions.dart';
+import '../../models/get_api/user_model.dart';
+import '../../services/get_api/api_service.dart';
+import '../../core/constants/api_constants.dart';
 
 class UserController extends GetxController {
   final ApiService _apiService = ApiService();

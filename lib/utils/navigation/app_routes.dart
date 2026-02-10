@@ -6,6 +6,7 @@ class AppRoutes {
   static const String todoScreen = "/todo-screen";
   static const String pracScreen = "/prac-screen";
   static const String photosScreen = "/photos-screen";
+  static const String postApi = "/post-api";
   
 
   

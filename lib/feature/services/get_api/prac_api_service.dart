@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import '../core/constants/api_constants.dart';
+import '../../core/constants/api_constants.dart';
 
 class PracApiService {
   final http.Client _client = http.Client();

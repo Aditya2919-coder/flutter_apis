@@ -1,7 +1,7 @@
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
-import '../models/todos_model.dart';
-import '../services/todos_api_screen.dart';
+import '../../models/get_api/todos_model.dart';
+import '../../services/get_api/todos_api_screen.dart';
 
 class TodosController extends GetxController {
   final TodosApiService _apiService = TodosApiService();
